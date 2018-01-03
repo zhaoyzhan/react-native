@@ -15,7 +15,7 @@ export default class Headers extends React.Component {
 	render() {
 		return (
 			<View>
-				12345666
+				11
 			</View>
 		)
 	}
