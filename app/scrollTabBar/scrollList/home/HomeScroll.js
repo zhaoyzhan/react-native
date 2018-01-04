@@ -15,12 +15,42 @@ import ScrollableTabView, {
 	DefaultTabBar
 } from 'react-native-scrollable-tab-view';
 
+import HomeChild from './HomeChild'
+
 export default class HomeScroll extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			index: 0
+			index: 0,
+			typeArr: [{
+				'title': '第一页',
+				'type': '第一页'
+			}, {
+				'title': '第二页',
+				'type': '第二页'
+			}, {
+				'title': '第三页',
+				'type': '第三页'
+			}, {
+				'title': '第四页',
+				'type': '第四页'
+			}, {
+				'title': '第五页',
+				'type': '第五页'
+			}, {
+				'title': '第六页',
+				'type': '第六页'
+			}, {
+				'title': '第七页',
+				'type': '第七页'
+			}, {
+				'title': '第八页',
+				'type': '第八页'
+			}, {
+				'title': '第九页',
+				'type': '第九页'
+			}]
 		};
 	};
 	static navigationOptions = {
@@ -47,15 +77,13 @@ export default class HomeScroll extends React.Component {
 			    onScroll={(e) => this._onScroll(e)}
 			    onChangeTab={(i)=>this._onChangeTab(i)}
 			>
-				<Text tabLabel='Tab1'/>
-				<Text tabLabel='Tab2'/>
-				<Text tabLabel='Tab3'/>
-				<Text tabLabel='Tab4'/>
-				<Text tabLabel='Tab5'/>
-				<Text tabLabel='Tab6'/>
-				<Text tabLabel='Tab7'/>
-				<Text tabLabel='Tab8'/>
-
+				{
+					this.state.typeArr.map((item, index)=>{
+						return (
+							<HomeChild tabLabel={item.title} type={item.type} key={index}/>
+						)
+					})
+				}
 			</ScrollableTabView>
 		)
 	}

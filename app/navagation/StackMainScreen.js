@@ -22,16 +22,20 @@ class StackMainScreen extends React.Component {
 	static navigationOptions = {
 		title: 'Welcome',
 	};
+	buttonOnClick() {
+		console.log("1")
+	};
 	render() {
 		const {
 			navigate
 		} = this.props.navigation;
+		console.log(this.props)
 		return (
 			<View style={styles.contain}>
 				<Button onPress={this.buttonOnClick} style={styles.btn} title='第一页'></Button>
 				<Button onPress={()=>ToastAndroid.show("被点击了", ToastAndroid.SHORT)} style={styles.btn} title='第二页'></Button>
-				<Button onPress={()=>navigate('Chat', {user: 'zhangsan'})} style={styles.btn} title='第三页'></Button>
-				<Button style={styles.btn} title='第四页'></Button>
+				<Button onPress={()=>navigate('ChatScreen', {user: 'zhangsan'})} style={styles.btn} title='第三页'></Button>
+				<Button onPress={()=>ToastAndroid.show("被点击了", ToastAndroid.SHORT)} style={styles.btn} title='第四页'></Button>
 				<TouchableHighlight 
 					activeOpacity={0.5} 
 					underlayColor={'red'}
@@ -101,5 +105,8 @@ const styles = StyleSheet.create({
 	},
 	right: {
 		flex: 1
+	},
+	btn: {
+		fontSize: 14
 	}
 })
