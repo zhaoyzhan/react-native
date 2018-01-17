@@ -29,52 +29,52 @@ class CarMain extends React.Component {
 		this.state = {
 			carList: [{
 				'path': require('../../../../img/p0.jpg'),
-				'title': '凯迪拉克',
+				'title': '凯迪拉克00',
 				'id': 0,
 				// 'navigate': navigate
 			}, {
 				'path': require('../../../../img/p1.jpg'),
-				'title': '凯迪拉克',
+				'title': '凯迪拉克01',
 				'id': 1,
 				// 'navigate': navigate
 			}, {
 				'path': require('../../../../img/p2.jpg'),
-				'title': '凯迪拉克',
+				'title': '凯迪拉克02',
 				'id': 2,
 				// 'navigate': navigate
 			}, {
 				'path': require('../../../../img/p3.jpg'),
-				'title': '凯迪拉克',
+				'title': '凯迪拉克03',
 				'id': 3,
 				// 'navigate': navigate
 			}, {
 				'path': require('../../../../img/p4.jpg'),
-				'title': '凯迪拉克',
+				'title': '凯迪拉克04',
 				'id': 4,
 				// 'navigate': navigate
 			}, {
 				'path': require('../../../../img/p5.jpg'),
-				'title': '凯迪拉克',
+				'title': '凯迪拉克05',
 				'id': 5,
 				// 'navigate': navigate
 			}, {
 				'path': require('../../../../img/p6.jpg'),
-				'title': '凯迪拉克',
+				'title': '凯迪拉克06',
 				'id': 6,
 				// 'navigate': navigate
 			}, {
 				'path': require('../../../../img/p7.jpg'),
-				'title': '凯迪拉克',
+				'title': '凯迪拉克07',
 				'id': 7,
 				// 'navigate': navigate
 			}, {
 				'path': require('../../../../img/p8.jpg'),
-				'title': '凯迪拉克',
+				'title': '凯迪拉克08',
 				'id': 8,
 				// 'navigate': navigate
 			}, {
 				'path': require('../../../../img/p9.jpg'),
-				'title': '凯迪拉克',
+				'title': '凯迪拉克09',
 				'id': 9,
 				// 'navigate': navigate
 			}],
@@ -89,17 +89,6 @@ class CarMain extends React.Component {
 	render() {
 		return (
 			<View style={styles.contain}>
-				{/*<Button onPress={this.buttonOnClick} style={styles.btn} title='第一页'></Button>
-				<Button onPress={()=>ToastAndroid.show("被点击了", ToastAndroid.SHORT)} style={styles.btn} title='第二页'></Button>
-				<Button onPress={()=>navigate('Chat', {user: 'zhangsan!!!'})} style={styles.btn} title='第三页'></Button>
-				<Button onPress={()=>ToastAndroid.show("被点击了", ToastAndroid.SHORT)} style={styles.btn} title='第四页'></Button>
-				<TouchableHighlight 
-					activeOpacity={0.5} 
-					onPress={()=>navigate('Chat', {user: 'zhangsan1234'})}
-					style={{}}
-					>
-					<Text style={{fontSize:23, color:'blue', backgroundColor:'white', width:20}}>点击</Text>
-				</TouchableHighlight>*/}
 				<FlatList
 					data={this.state.carList}
 					renderItem={this._nativeR}
@@ -113,9 +102,21 @@ class CarMain extends React.Component {
 		const {
 			navigate
 		} = this.props.navigation;
+		const detailNews = item.item;
 		return (
 			<View>
-				<TouchableOpacity onPress={()=>navigate('Chat', {user: 'wangwu'})}>
+				<TouchableOpacity 
+					onPress={()=>navigate(
+						'Chat', 
+						{
+							news:[{
+								id: detailNews.id, 
+								path: detailNews.path, 
+								title: detailNews.title
+							}]
+						})
+					}
+				>
 					<Image style={styles.imgL} source={item.item.path}/>
 				</TouchableOpacity>
 				<Text style={styles.title}>{item.item.title}</Text>

@@ -15,6 +15,10 @@ import {
 } from 'mobx';
 
 import {
+	StackNavigator
+} from 'react-navigation';
+
+import {
 	observer
 } from 'mobx-react/native';
 
@@ -29,13 +33,16 @@ export default class MainMobx extends Component {
 			flag: 0
 		};
 	}
-	show = (nu) => {
-		console.log(nu)
+	static navigationOptions = {
+		title: '第一页',
+	};
+	show = () => {
+		this.num++
 	}
 	render() {
 		return (
 			<View style={styles.com}>
-				<Text onPress={this.show(7)}>{this.state.flag}</Text>
+				<Text onPress={this.show}>1234{this.state.num}</Text>
 			</View>
 		)
 	}

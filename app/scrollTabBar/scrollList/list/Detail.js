@@ -7,11 +7,11 @@ import {
 	Text
 } from "react-native";
 
-export default class CCSun extends React.Component {
+export default class Detail extends React.Component {
 	static navigationOptions = ({
 		navigation
 	}) => ({
-		title: `Chat with ${navigation.state.params.user}`,
+		title: navigation.state.params.news[0].title,
 	});
 	render() {
 		const {
@@ -19,7 +19,8 @@ export default class CCSun extends React.Component {
 		} = this.props.navigation.state;
 		return (
 			<View>
-                <Text>Hello {params.user}</Text>
+                <Text>{params.news[0].title}</Text>
+                <Text>{params.news[0].price}</Text>
             </View>
 		);
 	}

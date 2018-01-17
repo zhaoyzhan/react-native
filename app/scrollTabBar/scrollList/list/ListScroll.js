@@ -6,6 +6,12 @@ import {
 	StyleSheet
 } from 'react-native';
 
+import {
+	StackNavigator
+} from 'react-navigation';
+
+import ListNews from './ListNews'
+
 export default class ListScroll extends React.Component {
 	static navigationOptions = {
 		title: '列表页',
@@ -13,7 +19,7 @@ export default class ListScroll extends React.Component {
 	render() {
 		return (
 			<View style={styles.crollBar}>
-				<Text>List</Text>
+				<ListNews/>
 			</View>
 		)
 	}
